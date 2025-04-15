@@ -1,7 +1,7 @@
 class Imbued < Formula
   desc "Toolset for managing secrets in a development environment"
   homepage "https://github.com/novacove/imbued"
-  url "https://github.com/novacove/imbued.git", tag: "v0.1.0"
+  url "https://github.com/novacove/imbued.git", tag: "v0.1.1"
   license "MIT"
   head "https://github.com/novacove/imbued.git", branch: "main"
 
