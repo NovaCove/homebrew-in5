@@ -50,14 +50,7 @@ source (brew --prefix)/share/imbued/scripts/fish/imbued.fish
 To run Imbued in server mode, you can install it as a launchd service:
 
 ```bash
-# Create the necessary directory
-mkdir -p ~/.imbued/logs
-
-# Create the launchd plist file
-sed "s|~|$HOME|g" $(brew --prefix)/share/imbued/scripts/macos/com.novacove.imbued.plist > ~/Library/LaunchAgents/com.novacove.imbued.plist
-
-# Load the service
-launchctl load ~/Library/LaunchAgents/com.novacove.imbued.plist
+brew services start imbued
 ```
 
 When using server mode, also set the socket path in your shell configuration:
