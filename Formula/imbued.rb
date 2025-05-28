@@ -1,7 +1,7 @@
 class Imbued < Formula
   desc "Toolset for managing secrets in a development environment"
   homepage "https://github.com/novacove/imbued"
-  url "https://github.com/novacove/imbued.git", tag: "v0.1.3"
+  url "https://github.com/novacove/imbued.git", tag: "v0.1.6"
   license "MIT"
   head "https://github.com/novacove/imbued.git", branch: "main"
 
@@ -18,6 +18,14 @@ class Imbued < Formula
     # Install macOS launchd files
     (share/"imbued/scripts/macos").install "scripts/macos/com.novacove.imbued.plist"
     (share/"imbued/scripts/macos").install "scripts/macos/install.sh"
+  end
+
+  service do
+    run [opt_bin/"imbued", "server", "start"]
+    keep_alive true
+    run_at_load true
+    log_path var/".imbued/logs/imbued.log"
+    error_log_path var/".imbued/logs/imbued.log"
   end
 
   def caveats
